@@ -1,0 +1,14 @@
+---
+- name: Creacion de usuarios
+  hosts: all
+  become: true
+  tasks:
+  - name: Crear el usuario redhat en todos los servidores pass redhat
+    user:
+      name: redhat
+      # python -c 'import crypt,getpass; print crypt.crypt(getpass.getpass())'
+      password: '$6$BEmGhPf03yepR2oN$Z/1GdEs/8ahxWq9gPQM/kzkMOlO9o1.8U7OK4WIFbOjktZuNTJmEbZOR/xeloRbzqwX0Dot7jsX0M09/kz8n3.'
+      groups: wheel
+      state: present
+      shell: /bin/bash
+      createhome: yes
